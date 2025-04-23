@@ -95,8 +95,8 @@ dict_people["사람1"].name = "new_제이스"
 # 복사본도 수정됐음을 확인
 print(dict_people_copied["사람1"].name)
 
-# deepcopy 위함 
-import copy
+## deepcopy 위함 (copy.deepcopy())
+import copy 
 
 # Shallow Copy 가 아닌 Deep Copy 로 원본 Person 인스턴스가 아닌
 # 새로운 Person 인스턴스를 생성합니다.
@@ -120,4 +120,3 @@ print(tuples)
 # 값 가져옴 , 없으면 None 리턴 (C# 에서 TryGetValue())
 t = dict_country.get("한국", "None")
 print(t)
-
