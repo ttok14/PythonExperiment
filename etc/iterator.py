@@ -27,6 +27,11 @@ for i in myList:
 
 # 실제 요소 순회를 위해 
 # myList 의 iterator 객체 생성
+# list 나 tuple 같은 시퀀스에는 
+# 내부 순회를 위한 iterator 반환을 위해
+# __iter__() 가 구현돼있다 참고.
+# ** 또한 iter() 안에 iterator 를 또 넣으면
+# 파라미터로 들어간 iterator 가 자기 자신을 반환한다
 myListIter = iter(myList)
 
 # 타입 확인하면 list_iterator 가 나옴 
@@ -54,6 +59,20 @@ for i in myList:
     print(i)
     
 #---------------------------------------------#
+
+# iterator 에 iterator 를 넣으면
+# 항상 * 자신을 * 반환한다. 이건 중요함 . 
+myList = [1,2,3,4]
+
+# myList 에 대한 iterator 를 가져옴
+myListIter = iter(myList)
+# iter 에 iter 를 넣엇다
+newIter = iter(myListIter)
+
+# 두 객체가 동일함. 같은 주소의 객체임.
+print(f"Same ? : {myListIter is newIter} , {myListIter} , {newIter}")
+
+#--------------------------------------------#
 
 # yield 로 반환하는 함수는 Generator 함수라고함 .
 # Generator 예제도 확인할것

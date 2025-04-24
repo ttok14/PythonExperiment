@@ -21,8 +21,14 @@ dict_words = {
 # 모든 키 조회
 print(dict_words)
 
-# 주의 : 없는 키를 조회하면 KeyError 발생
+# 값 접근 
+#   - 주의 : 없는 키를 조회하면 KeyError 발생
 print(dict_words["기쁨"])
+#   - 만약에 없는 키에 접근했을때 KeyError 가 
+#       발생하지 않고 설정해둔 Default 값으로
+#       추가하면서 그 값을 받아오려면 setdefault 사용
+element = dict_words.setdefault("분노", "anger")
+print(element)
 
 # 값 수정
 dict_words["기쁨"] = "new_joy"
@@ -39,7 +45,11 @@ del dict_words["고통"]
 popped = dict_words.pop("기쁨")
 print("popped : ", popped)
 
-# 순회 
+
+for kr, en in dict_words.items():
+    print(f"'{kr}' 의 영어 이름은 '{en}' 입니다")
+
+# 키를 이용한 순회 
 for key in dict_words:
     print(f"{key} , {dict_words[key]}")
     
@@ -62,10 +72,10 @@ dict_words: dict[int, str] = {
 print(dict_words[2].upper())
 #------------------#
 
-# 모든 키 조회
+# 모든 키 조회 (Dictionary View)
 print(dict_words.keys())
 
-# 모든 값 조회
+# 모든 값 조회 (Dictionary View)
 print(dict_words.values())
 
 # Dictionary 복사 
@@ -120,3 +130,6 @@ print(tuples)
 # 값 가져옴 , 없으면 None 리턴 (C# 에서 TryGetValue())
 t = dict_country.get("한국", "None")
 print(t)
+
+#-----------------------------------#
+
