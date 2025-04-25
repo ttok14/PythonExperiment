@@ -1,7 +1,7 @@
 
-# 튜플 언패킹 (튜플 언패킹) 기능 소개 
+# 시퀀스 언패킹 (튜플이나 리스트와도 같은 순회가능한 객체의 언패킹) 기능 소개 
 
-# 튜플 언패킹이란 시퀀스를 (튜플 리스트 등..)
+# 시퀀스 언패킹이란 시퀀스를
 # 현재 요소값들을 컴마(,) 로 나누어진
 # 변수에 할당할 수 있게 해준다
 
@@ -20,7 +20,7 @@ print(f"{one} , {two} , {three} , {four}")
 
 #-------------------------------------#
 
-# 튜플을 요소로 갖는 리스트 
+# 리스트 pairs의 각 요소(튜플)를 one, two 변수에 언패킹
 pairs = [(1, 'one'), (2, 'two')]
 
 # 리스트[튜플] 를 언패킹
@@ -112,4 +112,41 @@ print(d)
 
 for i,j in getTuple():
     print(f"{i} , {j}")
+
+#-----------------------------------#
+
+# 또한 iterable 한 객체 앞에 * 를 붙이면 
+# 해당 객체를 언패킹하여 개별 항목으로 만들어 준다
+
+print("----- 인자 전달시 언패킹 ------")
+
+def function01(a,b,c,d):
+    print(a)
+    print(b)
+    print(c)
+    print(d)
     
+myList = [1,2,3,4]
+
+# iterable 인 리스트의 요소들을 
+# 각각 하나씩 풀어서(unpacking) 함수에 그대로 넘긴다
+function01(*myList)
+
+print()
+
+myList02 = [1,2]
+function01(*myList02, *myList02)
+
+print()
+
+myList03 = [3,4]
+function01(100, 200, *myList03)
+
+print()
+
+# 합치기
+combined_list = [*myList02, 99, *myList03]
+print(combined_list)
+
+myTuple = (1,2,3,4)
+function01(*myTuple)
