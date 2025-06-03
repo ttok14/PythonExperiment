@@ -3,6 +3,9 @@
 def make_closer(capture_var):
     # 클로저 함수 선언 
     def closer_func(param):
+        # 참고로 nonlocal 로 캡처된 변수를 변경할 수도 있음.
+        # (Enclosing Space 에 있는 변수에 변경하기 위해 명시)
+        
         # 현 함수 (closer_func) 를 감싸는 함수인 
         # make_closer 의 변수인 capture_var 를 
         # 담고 있는 셀(Cell) 객체에 대한 참조가 
