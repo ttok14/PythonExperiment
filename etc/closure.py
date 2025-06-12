@@ -17,6 +17,7 @@ def make_closer(capture_var):
         # 변수임. (Enclosing space 에 있는 변수를 참조했기때문에
         # capture 한다 , 연결을 유지하기위해)
         print(f"캡처된 변수값 : {capture_var}")
+        print(hex(id(capture_var)))
         print(f"로컬 파라미터 변수 : {param}")
 
     return closer_func
@@ -51,3 +52,6 @@ if closer_func.__closure__:
     for i in closer_func.__closure__:
         print(i.cell_contents)
         print(i)
+        
+import dis
+dis.dis(closer_func)
